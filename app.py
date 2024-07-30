@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_restx import Api, Resource, fields
 import paho.mqtt.client as mqtt
 import base64
@@ -13,6 +14,7 @@ broker = "152.42.161.80"
 port = 1883  # Port for MQTT over TLS
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app, version='1.0', title='Indoor Unit Controller API',
           description='An API to control indoor unit switches')
 
